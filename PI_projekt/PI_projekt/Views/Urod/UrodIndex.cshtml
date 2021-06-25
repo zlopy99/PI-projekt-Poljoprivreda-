@@ -1,0 +1,46 @@
+﻿@model IEnumerable<PI_projekt.Models.Urod>
+
+<h4>Urod na mikrolokaciji @ViewBag.MikroID</h4>
+<p>
+    <a class="gumbDodavanja" asp-action="DodajUrod" asp-route-id="@ViewBag.MikroID">Dodaj novi Urod</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.UrodId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Opis)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Kolicina)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UrodId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Opis)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Kolicina)
+                </td>
+                <td>
+                    <a class="gumbEdit" asp-action="Uredi" asp-route-id="@item.UrodId">Uredi</a> |
+                    <a class="gumbIzbrisati" asp-action="Izbrisi" asp-route-id="@item.UrodId">Izbriši</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div>
+    <a class="povratak" asp-controller="Lokacija" asp-action="MikrolokacijeIndex" asp-route-id="@ViewBag.Location">Povratak</a>
+</div>

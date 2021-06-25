@@ -1,0 +1,67 @@
+﻿@model PI_projekt.ViewModels.OstvareneNarudzbeVM
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Ime kupca
+            </th>
+            <th>
+                Kontakt kupca
+            </th>
+            <th>
+                Biljka
+            </th>
+            <th>
+                Količina
+            </th>
+            <th>
+                Zarada
+            </th>
+            <th>
+                Datum isporuke
+            </th>
+            <th>
+                Opis
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model.ostvareneNarudzbe)
+    {
+        <tr>
+            <td>
+                <a class="gumbDodavanja" asp-action="KupciView">@Html.DisplayFor(modelItem => item.ImeKupca)</a>
+                <!--Html.DisplayFor(modelItem => item.ImeKupca)-->
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.KontaktKupca)
+            </td>
+            <td>
+                <a class="gumbDodavanja" asp-controller="KorisnikBiljke" asp-action="KorisnikBiljkeIndex">@Html.DisplayFor(modelItem => item.NazivBiljke)</a>
+                <!--Html.DisplayFor(modelItem => item.NazivBiljke)-->
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Kolicina)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Zarada)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Datum)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Opis)
+            </td>
+            <td>
+                <a class="gumbEdit" asp-action="EditON" asp-route-id="@item.OstvareneNarudzbeId">Uredi</a> |
+                <a class="gumbIzbrisati" asp-action="Izbrisi" asp-route-id="@item.OstvareneNarudzbeId">Izbriši</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
+<p>
+    <a class="povratak" asp-controller="Prodaja" asp-action="NarudzbeIndex">Povratak</a>
+</p>

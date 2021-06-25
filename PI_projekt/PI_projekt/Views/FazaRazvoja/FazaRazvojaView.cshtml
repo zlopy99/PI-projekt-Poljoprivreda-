@@ -1,0 +1,51 @@
+﻿@model PI_projekt.ViewModels.FazaRazvojaViewModel
+
+<p>
+    <a class="gumbDodavanja" asp-action="DodajNovuView" asp-route-id="@ViewBag.IDe">Dodaj novu</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Naziv
+            </th>
+            <th>
+                Trajanje faze
+            </th>
+            <th>
+                Doba odvijanja faze
+            </th>
+            <th>
+                Opis
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.FazaRazvojaBiljke)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Naziv)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TrajanjeFaze)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GodisnjeDobaOdvijanjaFaze)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Opis)
+                </td>
+
+                <td>
+                    <a class="gumbEdit" asp-action="Edit" asp-route-id="@item.BiljkaFazaRazvojaId">Uredi</a> |<!--item.BiljkaFazaRazvojaId-->
+                    <a class="gumbIzbrisati" asp-action="Izbrisi" asp-route-id="@item.BiljkaFazaRazvojaId">Izbriši</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<div>
+    <a class="povratak" asp-controller="KorisnikBiljke" asp-action="KorisnikBiljkaDetalji" asp-route-id="@ViewBag.id">Povratak</a>
+</div>

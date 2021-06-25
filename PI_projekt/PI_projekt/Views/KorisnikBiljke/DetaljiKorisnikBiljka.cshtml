@@ -1,0 +1,65 @@
+﻿@model PI_projekt.ViewModels.BiljKorDetModel
+
+<div>
+    <h4>Detalji o biljci</h4>
+    
+    
+    <hr />
+    <dl class="row">
+        @foreach (var item in Model.DetaljiOKorisnikovojBiljci)
+        {
+            <dt class="col-sm-2">
+                Naziv
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => item.Naziv)
+            </dd>
+            <dt class="col-sm-2">
+                Latinski naziv
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => item.LatinskiNaziv)
+            </dd>
+            <dt class="col-sm-2">
+                Red
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => item.Red)
+            </dd>
+            <dt class="col-sm-2">
+                Razred
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => item.Razred)
+            </dd>
+            <dt class="col-sm-2">
+                Porodica
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => item.Porodica)
+            </dd>
+            <dt class="col-sm-2">
+                Rod
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => item.Rod)
+            </dd>
+            <dt class="col-sm-2">
+                Opis
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => item.Opis)
+                <!--<a asp-action="UrediOpisKodDetalja" asp-route-id="ViewBag.Message">Uredi</a>-->
+            </dd>
+            <dd class="col-sm-10">
+                <a class="gumbDodavanja" asp-controller="FazaRazvoja" asp-action="FazaRazvojaIndex" asp-route-id="@item.BiljkaID">Faze razvoja biljke</a> |
+                <a class="gumbDodavanja" asp-controller="Upotreba" asp-action="UpotrebaIndex" asp-route-id="@item.BiljkaID">Upotreba</a> |
+                <a class="gumbDodavanja" asp-controller="Poslovi" asp-action="PosloviIndex" asp-route-id="@item.BiljkaKorisnikId">Poslovi</a>
+            </dd>
+        }
+
+    </dl>
+</div>
+<div>
+    <a class="povratak" asp-action="KorisnikBiljkeIndex">Povratak</a>
+</div>

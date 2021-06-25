@@ -1,0 +1,44 @@
+﻿@model PI_projekt.Models.DetaljiNarudžbe
+
+<h4>Detalji narudžbe</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post" asp-action="DodajDetalje">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" value="@ViewBag.NarudzbaID" asp-for="Narudzba" />
+            <div class="form-group">
+                @ViewBag.mess
+                <label asp-for="Biljka" class="control-label"></label>
+                <select asp-for="Biljka" class="form-control" asp-items="ViewBag.Biljka">
+                    <option disabled selected value="">Izaberite biljku</option>
+                </select>
+                <!--<a asp-controller="KorisnikBiljke" asp-action="KorisnikBiljkeIndex">Provjeri ID biljke</a>-->
+            </div>
+            <div class="form-group">
+                <label asp-for="kolicina" class="control-label">Količina</label>
+                <input asp-for="kolicina" class="form-control" />
+                <span asp-validation-for="kolicina" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UkupnaCijena" class="control-label">Cijena</label>
+                <input asp-for="UkupnaCijena" class="form-control" />
+                <span asp-validation-for="UkupnaCijena" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Opis" class="control-label"></label>
+                <input asp-for="Opis" class="form-control" />
+                <span asp-validation-for="Opis" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Spremi" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <!--a class="povratak" asp-action="AkoStanemoNaPola" asp-route-id="@ViewBag.NarudzbaID">Back to List</!--a>-->
+    <a class="povratak" asp-action="NarudzbeIndex">Povratak</a>
+</div>
+

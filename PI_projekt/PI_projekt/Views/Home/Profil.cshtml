@@ -1,0 +1,36 @@
+﻿@model PI_projekt.Models.Korisnik
+
+<h1>Dobro došao @Html.DisplayFor(model => Model.ImePrezime)!</h1>
+<table class="table mt-5">
+        <tr>
+            <th>
+                ID/Oznaka korisnika
+            </th>
+            <th>
+                Ime i prezime
+            </th>
+            <th>
+                Email
+            </th>
+            <th>
+                Lozinka
+            </th>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayFor(model => model.KorisnikId)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.ImePrezime)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.Lozinka)
+            </td>
+        </tr>
+</table>
+<!--
+    using Microsoft.AspNetCore.Http;
+    Welcome Context.Session.GetString("imePrezimeLogiranogKorisnika")-->

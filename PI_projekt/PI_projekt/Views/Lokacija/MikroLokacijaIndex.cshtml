@@ -1,0 +1,62 @@
+﻿@model PI_projekt.ViewModels.MikrolokacijaVM
+<p>
+    <a class="gumbDodavanja" asp-action="DodajNovuMikrolokaciju" asp-route-id="@ViewBag.idLokacije">Dodaj novu</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                ID/oznaka
+            </th>
+            <th>
+                Tip uzgoja
+            </th>
+            <th>
+                Biljka
+            </th>
+            <th>
+                Površina
+            </th>
+            <th>
+                Očekivani urod
+            </th>
+            <th>
+                Opis
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.mikrolokacija)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.mikrolokacijaId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.nazivTipaUzgoja)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.nazivBiljke)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.povrsina)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ocekivaniUrod)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.opis)
+                </td>
+                <td>
+                    <a class="gumbDodavanja" asp-controller="Urod" asp-action="UrodIndex" asp-route-id="@item.mikrolokacijaId">Urod</a> |
+                    <a class="gumbEdit" asp-action="UrediMikroLokacijuView" asp-route-id="@item.mikrolokacijaId">Uredi</a> |
+                    <a class="gumbIzbrisati" asp-action="IzbrisiML" asp-route-id="@item.mikrolokacijaId">Izbriši</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<div>
+    <a class="povratak" asp-action="LokacijaIndex">Povratak</a>
+</div>

@@ -1,0 +1,36 @@
+﻿@model PI_projekt.Models.Korisnik
+@{ Layout = "~/Views/Shared/_LayoutZaPocetnu.cshtml"; }
+
+<h1 class="row justify-content-center prijava">Registrirajte se</h1>
+<hr />
+<div class="containerLogin border-bottom">
+    <div class="row justify-content-center">
+        <div class="col-md-4">
+            <form method="post" asp-action="Registracija">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="ImePrezime" class="control-label forLabels">Ime i prezime</label>
+                    <input asp-for="ImePrezime" class="form-control forInput" />
+                    <span asp-validation-for="ImePrezime" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Email" class="control-label forLabels"></label>
+                    <input asp-for="Email" class="form-control forInput" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Lozinka" class="control-label forLabels"></label>
+                    <input asp-for="Lozinka" class="form-control forInput" type="password" />
+                    <span asp-validation-for="Lozinka" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Registrirajte se" class="btn btn-primary" />
+                </div>
+            </form>
+            @ViewBag.error
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <a asp-controller="Home" asp-action="Login">Imate račun? Prijavite se</a>
+    </div>
+</div>

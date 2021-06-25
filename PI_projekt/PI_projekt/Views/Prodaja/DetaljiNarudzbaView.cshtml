@@ -1,0 +1,61 @@
+﻿@model PI_projekt.ViewModels.DetaljiNarudzbeVM
+<p>
+    <a class="gumbDodavanja" asp-action="DodajDetaljeNarudzbeView" asp-route-id="@ViewBag.NarudzbaID">Dodaj novu</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Naziv biljke
+            </th>
+            <th>
+                Količina
+            </th>
+            <th>
+                Cijena
+            </th>
+            <th>
+                Kontakt kupca
+            </th>
+            <th>
+                Adresa kupca
+            </th>
+            <th>
+                Opis
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.detalji) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NazivBiljke)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Kolicina)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cijena)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.KontaktKupca)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AdresaKupca)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Opis)
+            </td>
+            <td>
+                <a class="gumbEdit" asp-action="EditDetalje" asp-route-id="@item.detaljiNarudzbeId">Edit</a> |
+                <!--<a asp-action="Details" asp-route-id="item.detaljiNarudzbeId">Details</a> |-->
+                <a class="gumbIzbrisati" asp-action="IzbrisiDetalje" asp-route-id="@item.detaljiNarudzbeId">Izbriši</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+<p>
+    <a class="povratak" asp-action="NarudzbeIndex">Povratak</a>
+</p>

@@ -1,0 +1,39 @@
+﻿@model PI_projekt.Models.FazaRazvojaBiljke
+
+<h4>FazaRazvojaBiljke</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post" asp-action="Dodaj">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" value="@ViewBag.IDe" asp-for="Biljka" />
+            <div class="form-group">
+                <label asp-for="FazaRazvoja" class="control-label"></label>
+                <select asp-for="FazaRazvoja" class="form-control" asp-items="ViewBag.FazaRazvoja"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="TrajanjeFaze" class="control-label"></label>
+                <input asp-for="TrajanjeFaze" class="form-control" />
+                <!--<span asp-validation-for="TrajanjeFaze" class="text-danger"></span>-->
+            </div>
+            <div class="form-group">
+                <label asp-for="GodisnjeDobaOdvijanjaFaze" class="control-label"></label>
+                <input asp-for="GodisnjeDobaOdvijanjaFaze" class="form-control" />
+                <!--<span asp-validation-for="GodisnjeDobaOdvijanjaFaze" class="text-danger"></span>-->
+            </div>
+            <div class="form-group">
+                <label asp-for="Opis" class="control-label"></label>
+                <input asp-for="Opis" class="form-control" />
+                <!--<span asp-validation-for="Opis" class="text-danger"></span>-->
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Dodaj" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a class="povratak" asp-action="FazaRazvojaIndex" asp-route-id="@ViewBag.IDe">Povratak</a>
+</div>
+

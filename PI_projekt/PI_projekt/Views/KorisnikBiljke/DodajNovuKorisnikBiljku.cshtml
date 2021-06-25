@@ -1,0 +1,34 @@
+﻿@model PI_projekt.Models.BiljkeKorisnik
+
+<h4>Dodaj novu biljku</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post" asp-action="DodajKorisnikBiljku">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Biljka" class="control-label"></label>
+                <select asp-for="Biljka" class="form-control" asp-items="ViewBag.Biljka"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="CijenaPoKg" class="control-label">Cijena</label>
+                <input asp-for="CijenaPoKg" class="form-control" />
+                <!--<span asp-validation-for="CijenaPoKg" class="text-danger"></span>-->
+            </div>
+            
+            <div class="form-group">
+                <label asp-for="Opis" class="control-label"></label>
+                <input asp-for="Opis" class="form-control" />
+                <!--<span asp-validation-for="Opis" class="text-danger"></span>-->
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Dodaj" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a class="povratak" asp-action="KorisnikBiljkeIndex">Povratak</a>
+</div>
+

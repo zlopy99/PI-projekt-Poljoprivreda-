@@ -1,0 +1,30 @@
+﻿@model PI_projekt.Models.Urod
+
+<h4>Alat</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post" asp-action="Uredi">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" value="@ViewBag.UrodID" asp-for="UrodId" />
+            <input type="hidden" value="@ViewBag.MikroID" asp-for="Mikrolokacija" />
+            <div class="form-group">
+                <label asp-for="Opis" class="control-label"></label>
+                <input asp-for="Opis" class="form-control" />
+                <span asp-validation-for="Opis" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Kolicina" class="control-label"></label>
+                <input asp-for="Kolicina" class="form-control" />
+                <span asp-validation-for="Kolicina" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Spremi promjene" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a class="povratak" asp-action="UrodIndex" asp-route-id="@ViewBag.MikroID">Povratak</a>
+</div>

@@ -1,0 +1,53 @@
+﻿@model PI_projekt.ViewModels.NarudzbaVM
+
+<p>
+    <a class="gumbDodavanja" asp-action="DodajNaruzbuView">Dodaj novu narudžbu</a>
+</p>
+<p>
+    <a class="gumbDodavanja" asp-action="OstvareneNarudzbeIndex">Ostvarene narudžbe</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                ID/Oznaka narudžbe
+            </th>
+            <th>
+                Kupac
+            </th>
+            <th>
+                Datum narudžbe
+            </th>
+            <th>
+                Datum isporuke
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.narudzba)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NarudzbaId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ImeKupca)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.datumNarudzbe)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.datumIsporuke)
+                </td>
+
+                <td>
+                    <a class="gumbDodavanja" asp-action="Prodano" asp-route-id="@item.NarudzbaId">Prodano</a> |
+                    <a class="gumbIzbrisati" asp-action="IzbrisiNarudzbu" asp-route-id="@item.NarudzbaId">Izbriši</a><br /><br />
+                    <a class="gumbDetalji" asp-action="DetaljiIndex" asp-route-id="@item.NarudzbaId">Detalji Narudžbe</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+@ViewBag.msg

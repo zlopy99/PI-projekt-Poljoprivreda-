@@ -1,0 +1,53 @@
+﻿@model IEnumerable<PI_projekt.Models.PlaniraniTroškovi>
+
+<p>
+    <a class="gumbDodavanja" asp-action="FormaZaDodavanjePlaniranogTroska">Dodaj novi</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Namjena)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Iznos)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Datum)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Opis)
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Namjena)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Iznos)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Datum)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Opis)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.KorisnikNavigation.ImePrezime)
+    </td>
+    <td>
+        <a class="gumbEdit" asp-action="FormaZaEditPlaniranogTroska" asp-route-id="@item.PlaniraniTroskoviId">Uredi</a>
+        <a class="gumbIzbrisati" asp-action="IzbrisiPlaniraniTrosak" asp-route-id="@item.PlaniraniTroskoviId">Izbriši</a>
+    </td>
+</tr>}
+    </tbody>
+</table>
+<div>
+    <a class="povratak" asp-action="TroskoviIndex">Povratak</a>
+</div>
