@@ -1,0 +1,50 @@
+﻿@model IEnumerable<PI_projekt.Models.Troškovi>
+
+<p>
+    <a class="gumbDodavanja" asp-action="PlaniraniTrosakIndex">Planirate trošak? Kliknite ovdje</a>
+</p>
+<br />
+<p>
+    <a class="gumbDodavanja" asp-action="FormaZaDodavanjeNovogTroska">Evidentirajte novi trošak</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Namjena)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Iznos)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Datum)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Opis)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Namjena)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Iznos)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Datum)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Opis)
+    </td>
+    <td>
+        <a class="gumbEdit" asp-action="FormaZaEditTroska" asp-route-id="@item.TroskoviId">Uredi</a>
+        <a class="gumbIzbrisati" asp-action="IzbrisiTrosak" asp-route-id="@item.TroskoviId">Izbriši</a>
+    </td>
+</tr>}
+    </tbody>
+</table>

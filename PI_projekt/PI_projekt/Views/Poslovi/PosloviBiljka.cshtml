@@ -1,0 +1,40 @@
+﻿@model PI_projekt.ViewModels.PosloviVM
+
+<p>
+    <a class="gumbDodavanja" asp-action="DodajNovuAktivnost" asp-route-id="@ViewBag.id">Dodaj novu aktivnost</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+               Naziv posla
+            </th>
+            <th>
+                Opis posla
+            </th>
+            
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.PosaoVezanZaBiljku)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NazivPosla)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Opis)
+                </td>
+                <td>
+                    <a class="gumbEdit" asp-action="EditPosaoBiljkaView" asp-route-id="@item.PosloviId">Uredi</a> |
+                    <a class="gumbIzbrisati" asp-action="IzbrisiPosaoBiljka" asp-route-id="@item.PosloviId">Izbriši</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<div>
+    <a class="povratak" asp-controller="KorisnikBiljke" asp-action="KorisnikBiljkaDetalji" asp-route-id="@ViewBag.ID">Povratak</a>
+</div>

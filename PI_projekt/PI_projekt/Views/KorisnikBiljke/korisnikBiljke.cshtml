@@ -1,0 +1,50 @@
+﻿@model PI_projekt.ViewModels.BKViewModel
+
+
+
+<p>
+    <a class="gumbDodavanja" asp-action="FormaZaDodavanjeKorisnikoveBiljke">Dodaj biljku</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                ID biljke
+            </th>
+            <th>
+                Naziv
+            </th>
+            <th>
+                Cijena po kg
+            </th>
+            <th>
+                Opis
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.KorisnikoveBiljke)
+        {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.BiljkaKorisnikId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Naziv)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CijenaPoKg)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Opis)
+        </td>
+
+        <td>
+            <a class="gumbEdit" asp-action="formaZaEditKorisnikoveBiljke" asp-route-id="@item.BiljkaKorisnikId">Uredi</a> |
+            <a class="gumbDetalji" asp-action="KorisnikBiljkaDetalji" asp-route-id="@item.BiljkaKorisnikId">Detalji</a> |
+            <a class="gumbIzbrisati" asp-action="IzbrisiKorisnikovuBiljku" asp-route-id="@item.BiljkaKorisnikId">Izbriši</a>
+        </td>
+    </tr>}
+    </tbody>
+</table>

@@ -1,0 +1,46 @@
+﻿@model PI_projekt.Models.Mikrolokacija
+
+<h4>Mikrolokacija</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post" asp-action="DodajMikroLokaciju">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" value="@ViewBag.LokacijaId" asp-for="Lokacija" />
+            <div class="form-group">
+                <label asp-for="Površina" class="control-label"></label>
+                <input asp-for="Površina" class="form-control" />
+                <span asp-validation-for="Površina" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Biljka" class="control-label"></label>
+                <select asp-for="Biljka" class="form-control" asp-items="ViewBag.Biljka"></select>
+                <!--<option disabled selected value="">Izaberite biljku</option>-->
+                <!--<a asp-controller="KorisnikBiljke" asp-action="KorisnikBiljkeIndex">Provjeri ID biljke</a>-->
+            </div>
+            <div class="form-group">
+                <label asp-for="TipUzgoja" class="control-label">Tip uzgoja</label>
+                <select asp-for="TipUzgoja" class="form-control" asp-items="ViewBag.TipUzgoja"></select>
+                <!--<option disabled selected value="">Izaberite tip uzgoja</option>-->
+            </div>
+            <div class="form-group">
+                <label asp-for="OčekivaniUrod" class="control-label">Očekivani urod</label>
+                <input asp-for="OčekivaniUrod" class="form-control" />
+                <span asp-validation-for="OčekivaniUrod" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Opis" class="control-label"></label>
+                <input asp-for="Opis" class="form-control" />
+                <span asp-validation-for="Opis" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Spremi" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a class="povratak" asp-action="MikrolokacijeIndex" asp-route-id="@ViewBag.LokacijaId">Povratak</a>
+</div>
+

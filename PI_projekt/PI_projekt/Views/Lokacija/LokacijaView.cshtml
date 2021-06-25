@@ -1,0 +1,48 @@
+﻿@model PI_projekt.ViewModels.LokacijaVM
+
+<p>
+    <a class="gumbDodavanja" asp-action="DodajNovu">Dodaj novu</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Naziv lokacije/parcele
+            </th>
+            <th>
+                Ukupna površina parcele
+            </th>
+            <th>
+                Obrađena površina parcele
+            </th>
+            <th>
+                Vrsta tla
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Lokacija)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NazivLokacije)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Povrsina)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ObradjenaPovrsina)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.VrstaTla)
+                </td>
+                <td>
+                    <a class="gumbDodavanja" asp-action="MikrolokacijeIndex" asp-route-id="@item.LokacijaID">Mikrolokacije</a> |
+                    <a class="gumbEdit" asp-action="UrediLokacijuView" asp-route-id="@item.LokacijaID">Uredi</a> |
+                    <a class="gumbIzbrisati" asp-action="Izbrisi" asp-route-id="@item.LokacijaID">Izbriši</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

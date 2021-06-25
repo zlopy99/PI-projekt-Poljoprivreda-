@@ -1,0 +1,48 @@
+﻿@model PI_projekt.Models.ProdajaBezNarudzbe
+
+<h4>Uredi</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post" asp-action="UrediAkcija">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" value="@ViewBag.ProdajaBezNarudzbeId" asp-for="ProdajaBezNarudzbeId" />
+            <div class="form-group">
+                <label asp-for="Kupac" class="control-label"></label>
+                <select asp-for="Kupac" class="form-control" asp-items="ViewBag.Kupac">
+                    <option disabled selected value="">Izaberi kupca</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Biljka" class="control-label"></label>
+                <select asp-for="Biljka" class="form-control" asp-items="ViewBag.Biljka">
+                    <option disabled selected value="">Izaberi biljku</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Kolicina" class="control-label"></label>
+                <input asp-for="Kolicina" class="form-control" />
+                <span asp-validation-for="Kolicina" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UkupnaCijena" class="control-label">Ukupna cijena</label>
+                <input asp-for="UkupnaCijena" class="form-control" />
+                <span asp-validation-for="UkupnaCijena" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Opis" class="control-label"></label>
+                <input asp-for="Opis" class="form-control" />
+                <span asp-validation-for="Opis" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Spremi promjene" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a class="povratak" asp-action="ProdajaIndex">Povratak</a>
+</div>
+

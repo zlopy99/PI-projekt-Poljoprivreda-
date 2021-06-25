@@ -1,0 +1,59 @@
+﻿@model PI_projekt.ViewModels.ProdajaBezNarudzbeVM
+
+<p>
+    <a class="gumbDodavanja" asp-action="DodajNovuView">Dodaj novu</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Ime kupca
+            </th>
+            <th>
+                Kontakt kupca
+            </th>
+            <th>
+                Biljka
+            </th>
+            <th>
+                Količina
+            </th>
+            <th>
+                Cijena
+            </th>
+            <th>
+                Opis
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.ProdajaBezNarudzbe) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ImeKupca)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.KontaktKupca)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NazivBiljke)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Kolicina)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cijena)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Opis)
+            </td>
+            <td>
+                <a class="gumbEdit" asp-action="Uredi" asp-route-id="@item.ProdajaBezNarudzbeId">Uredi</a> 
+                <a class="gumbIzbrisati" asp-action="Izbrisi" asp-route-id="@item.ProdajaBezNarudzbeId">Izbriši</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+@ViewBag.poruka

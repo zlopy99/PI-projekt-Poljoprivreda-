@@ -1,0 +1,1 @@
+Importajte Db na vaš lokalni SQL server i podesite user secrets za Connectionstring vaše baze.

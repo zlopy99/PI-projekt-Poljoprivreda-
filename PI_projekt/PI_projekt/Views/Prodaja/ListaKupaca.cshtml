@@ -1,0 +1,44 @@
+﻿@model IEnumerable<PI_projekt.Models.Kupac>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                ID/oznaka kupca
+            </th>
+            <th>
+                Ime i prezime
+            </th>
+            <th>
+                Kontakt
+            </th>
+            <th>
+                Adresa
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.KupacId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ImePrezime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Kontkat)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Adresa)
+            </td>
+            <td>
+                <a class="gumbEdit" asp-action="EditKupac" asp-route-id="@item.KupacId">Uredi</a> 
+                <!--<a asp-action="Details" asp-route-id="item.KupacId">Details</a> |-->
+                <!--<a asp-action="IzbrisiKupca" asp-route-id="item.KupacId">Izbrisi</a>-->
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
